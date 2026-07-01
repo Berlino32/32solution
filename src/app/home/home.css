@@ -1,0 +1,158 @@
+/* Container principale */
+.hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    min-height: calc(100vh - 90px);
+    padding: 20px 8%;
+    background: linear-gradient(-45deg, #000000, #1a0000, #1a0000, #0a0a0a);
+    background-size: 400% 400%;
+    animation: backgroundFlow 12s ease infinite;
+    overflow: hidden;
+}
+
+/* Sfondo Hero */
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background-image: url('/shw4.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0.4);
+    background-blend-mode: overlay;
+}
+
+/* Canvas */
+#constellation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Layout a colonne */
+.hero-left {
+    flex: 1;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.hero-right {
+    flex: 1;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+}
+
+/* Tipografia */
+.hero-left h1 {
+    color: #ffffff;
+    font-size: clamp(2.5rem, 5vw, 5rem);
+    font-weight: 800;
+    margin-bottom: 20px;
+    animation: movingNeon 3s ease-in-out infinite alternate;
+}
+
+.hero-left p {
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1.6;
+    max-width: 500px;
+    margin-bottom: 30px;
+}
+
+/* Labels */
+.hero-labels { 
+    display: flex; 
+    gap: 10px; 
+    margin-bottom: 20px; 
+    justify-content: flex-start; 
+}
+
+.label {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+}
+
+/* Bottoni */
+.hero-buttons { 
+    display: flex; 
+    gap: 15px; 
+    justify-content: flex-start; /* Allinea a sinistra */
+    flex-wrap: wrap; /* Manda a capo su mobile se lo spazio finisce */
+    align-items: center; 
+}
+
+.btn-primary, .btn-secondary {
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+/* --- EFFETTO PULSANTE ROSSO DINAMICO --- */
+.btn-primary {
+    border: none;
+    color: #fff;
+    background: linear-gradient(135deg, #ff0000, #5f0101);
+    background-size: 200% 200%;
+    animation: gradientMove 4s ease infinite;
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.5);
+}
+
+.btn-secondary { 
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+    color: white; 
+    background: transparent; 
+}
+
+.btn-secondary:hover { 
+    background: rgba(255, 255, 255, 0.1); 
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .hero { flex-direction: column; text-align: center; }
+    .hero-left { align-items: center; text-align: center; }
+    .hero-labels, .hero-buttons { justify-content: center; }
+    #product-image { max-width: 250px; margin-top: 20px; }
+}
+
+/* Keyframes */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes backgroundFlow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+@keyframes movingNeon { 0% { text-shadow: 0 0 5px #a10404; } 100% { text-shadow: 0 0 20px #ff0000; } }

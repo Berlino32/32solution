@@ -1,0 +1,78 @@
+.showcase-section {
+  position: relative; /* Necessario per il posizionamento dell'immagine */
+  padding: 60px 5% 100px 5%;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* Gestione dell'immagine di sfondo */
+.showcase-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background-image: url('/shw3.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  /* Overlay scuro per mantenere il contrasto col testo */
+  background-color: rgba(0, 0, 0, 0.767);
+  background-blend-mode: overlay;
+}
+
+/* Assicuriamo che il contenuto sia sopra lo sfondo */
+.header, .features-grid {
+  position: relative;
+  z-index: 10;
+}
+
+/* BOX HEADER CON BORDO ANIMATO */
+.header { 
+  margin-bottom: 50px; 
+  text-align: center;
+  position: relative;
+  padding: 25px 50px;
+  background: #000;
+  border-radius: 15px;
+  display: inline-block;
+  border: 2px solid transparent;
+  background-image: linear-gradient(#000, #000), linear-gradient(90deg, #ff0000, #550000, #ff0000, #550000);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  background-size: 200% 100%;
+  animation: moveGradient 2s linear infinite;
+}
+
+@keyframes moveGradient {
+  0% { background-position: 0 0, 0 0; }
+  100% { background-position: 0 0, 200% 0; }
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(200px, 280px)); 
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  justify-content: center;
+  justify-items: center;
+  padding-bottom: 50px;
+}
+
+@media (max-width: 1200px) { 
+  .features-grid { grid-template-columns: repeat(3, minmax(200px, 300px)); } 
+}
+
+@media (max-width: 992px) { 
+  .features-grid { grid-template-columns: repeat(2, minmax(200px, 300px)); } 
+}
+
+@media (max-width: 600px) { 
+  .features-grid { grid-template-columns: 1fr; } 
+}

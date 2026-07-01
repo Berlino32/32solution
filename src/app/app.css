@@ -1,0 +1,59 @@
+:host {
+  display: block;
+  background: #000;
+  min-height: 100vh;
+  /* Nascondi il cursore standard dove vuoi l'effetto */
+  cursor: none; 
+}
+
+/* Definizione del cursore personalizzato */
+.custom-cursor {
+  position: fixed;            /* Lo blocca rispetto alla finestra (viewport) */
+  top: 0;
+  left: 0;
+  width: 100px;               /* Dimensione totale del bagliore */
+  height: 100px;
+  pointer-events: none;       /* IMPORTANTE: permette di cliccare attraverso il cursore */
+  z-index: 99999;             /* Assicura che sia sempre sopra ogni altro elemento */
+  border-radius: 50%;         /* Forma circolare */
+  
+  /* Gradiente: trasparente al centro, rosso sfumato ai bordi */
+  background: radial-gradient(
+    circle, 
+    transparent 20%,          /* Centro trasparente */
+    rgba(255, 0, 0, 0.4) 50%, /* Rosso sfumato */
+    transparent 80%           /* Bordo che svanisce */
+  );
+  
+  /* Centratura del cursore sul punto preciso */
+  transform: translate(-50%, -50%);
+  
+  /* Opzionale: rende il movimento fluido */
+  transition: transform 0.05s ease-out; 
+}
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* Ridotto da 100px a 60px per un effetto più compatto */
+  width: 10px; 
+  height: 10px;
+  pointer-events: none;
+  z-index: 9999999 !important;
+  border-radius: 50%;
+  
+  /* Gradiente più concentrato per aumentare la luminosità */
+  background: radial-gradient(
+    circle, 
+    transparent 30%,          /* Centro trasparente più ampio */
+    rgba(255, 0, 0, 0.8) 55%, /* Rosso molto più intenso (0.8 invece di 0.4) */
+    transparent 70%           /* Bordo più netto */
+  );
+  
+  /* Filtro per aumentare l'effetto "neon/glow" */
+  filter: blur(2px) brightness(1.2);
+  
+  transform: translate(-50%, -50%);
+  /* Transizione ultra-rapida per zero lag */
+  transition: transform 0.03s linear; 
+}

@@ -1,0 +1,89 @@
+/* --- BASE NAVBAR --- */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 5%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(130, 21, 21, 0.3);
+  position: relative;
+  z-index: 1000;
+}
+
+.logo {
+  flex: 0 0 auto;
+}
+
+.logo img {
+  width: 180px; /* Ridotto leggermente per mobile */
+  filter: drop-shadow(0 0 5px #821515);
+  transition: width 0.3s ease;
+}
+
+/* --- NAV LINKS RESPONSIVE --- */
+.nav-links {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  /* Rimossa la posizione assoluta per evitare sovrapposizioni */
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: 0.4s;
+  position: relative;
+}
+
+/* Effetto Hover */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #821515;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #821515;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* --- MEDIA QUERY PER RESPONSIVENESS --- */
+
+/* Tablet e schermi medi */
+@media (max-width: 992px) {
+  .logo img { width: 150px; }
+  .nav-links { gap: 20px; }
+}
+
+/* Smartphone */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column; /* Impila logo e menu verticalmente */
+    gap: 15px;
+  }
+  
+  .nav-links {
+    gap: 15px;
+    font-size: 14px;
+    width: 100%;
+    justify-content: center;
+    border-top: 1px solid rgba(130, 21, 21, 0.2);
+    padding-top: 15px;
+  }
+}

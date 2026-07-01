@@ -1,0 +1,36 @@
+<div class="modal-overlay" (click)="onOverlayClick($event)">
+  <div class="modal-content">
+    <button class="close-btn" (click)="closeModal()">×</button>
+    
+    <div class="modal-header">
+      <div class="lock-icon">🔒 SECURE CHECKOUT</div>
+      <h2>Acquisto: Private Licenses</h2>
+    </div>
+
+    <div class="payment-tabs">
+      <button class="tab active">PayPal</button>
+      <!--<button class="tab">Criptovalute</button>
+      <button class="tab">IBAN / Bonifico</button>-->
+    </div>
+
+    <div class="payment-body">
+      <p>Send the payment with <strong>PayPal (Send to a friend / Family)</strong> for the automatic activation of the license.</p>
+      
+      <label>EMAIL DI PAGAMENTO:</label>
+      <div class="input-group">
+        <input type="text" value="32.bypass@gmail.com" readonly #emailInput>
+        <button class="copy-btn" (click)="copy(emailInput.value)">📋</button>
+      </div>
+
+      <label>NOTA DI PAGAMENTO (CAUSALE):</label>
+      <div class="input-group">
+        <input type="text" value="Compila con tuo id discord" readonly #noteInput>
+        <button class="copy-btn" (click)="copy(noteInput.value)">📋</button>
+      </div>
+
+      <div class="warning">
+        ⚠️ <strong>WARNING:</strong> It is mandatory to enter the above payment note as the reason for the transaction to allow manual association.
+      </div>
+    </div>
+  </div>
+</div>

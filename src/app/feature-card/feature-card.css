@@ -1,0 +1,85 @@
+:host {
+  position: relative;
+  display: block;
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 12px;
+  overflow: hidden;
+  /* Aggiunta transizione e prospettiva 3D */
+  transition: transform 0.1s ease-out, border 0.3s;
+  transform: perspective(1000px) rotateX(var(--rotateX, 0deg)) rotateY(var(--rotateY, 0deg));
+  transform-style: preserve-3d;
+  
+  /* Quadratura e dimensioni */
+  aspect-ratio: 1 / 1;
+  max-width: 300px;
+  width: 100%;
+}
+
+:host:hover {
+  /* Effetto elevazione al passaggio del mouse */
+  transform: perspective(1000px) rotateX(var(--rotateX, 0deg)) rotateY(var(--rotateY, 0deg)) scale(1.02);
+}
+
+/* L'effetto luce (glow) */
+:host::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(
+    200px circle at var(--x) var(--y),
+    rgba(130, 21, 21, 0.25),
+    transparent 80%
+  );
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  z-index: 0;
+}
+
+:host:hover::before { opacity: 1; }
+
+/* Contenuto della card */
+.card-inner { 
+  padding: 20px; 
+  height: 100%; 
+  position: relative; 
+  z-index: 1; 
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
+  /* Necessario per mantenere il contenuto fermo rispetto all'inclinazione 3D */
+  transform: translateZ(20px);
+}
+
+h3 {
+  font-size: 1rem;
+  margin: 0 0 10px 0;
+  color: #fff;
+}
+
+p {
+  font-size: 0.8rem;
+  color: #aaa;
+  margin: 0 0 15px 0;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.tag { 
+  background: #2a0a0a; 
+  color: #a32626; 
+  padding: 3px 8px; 
+  border-radius: 4px; 
+  font-size: 0.65rem; 
+  border: 1px solid #4a1212;
+}

@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+/* RESET TOTALE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY E HTML FLESSIBILI */
+html, body {
+  width: 100%;
+  /* Usiamo min-height invece di height per permettere lo scroll se il contenuto è lungo */
+  min-height: 100%; 
+  background: #000000;
+  color: #fff;
+  font-family: sans-serif; /* Aggiungi un font di base */
+  overflow-x: hidden; /* Blocca solo lo scroll orizzontale */
+  overflow-y: auto;   /* Permette lo scroll verticale solo quando serve */
+}
+
+/* Utility per evitare overflow laterali globali */
+img, video, canvas {
+  max-width: 100%;
+  height: auto;
+}

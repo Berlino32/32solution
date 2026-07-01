@@ -1,0 +1,24 @@
+.modal-overlay {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(10px);
+  display: flex; justify-content: center; align-items: center; z-index: 1000;
+}
+
+.modal-content {
+  background: #0a0a0a; border: 1px solid #333; border-radius: 12px;
+  padding: 30px; width: 100%; max-width: 450px; color: white; position: relative;
+}
+
+.close-btn { position: absolute; top: 15px; right: 15px; background: none; border: none; color: white; font-size: 24px; cursor: pointer; }
+
+.lock-icon { font-size: 0.7rem; color: #888; margin-bottom: 10px; }
+
+.payment-tabs { display: flex; gap: 10px; margin-bottom: 20px; }
+.tab { background: #1a1a1a; border: 1px solid #333; color: #fff; padding: 10px 15px; border-radius: 5px; cursor: pointer; }
+.tab.active { border-color: #821515; background: #2a0a0a; }
+
+.input-group { display: flex; background: #000; border: 1px solid #333; border-radius: 5px; margin: 10px 0 20px; }
+input { flex: 1; background: transparent; border: none; color: #fff; padding: 12px; }
+.copy-btn { background: #1a1a1a; border: none; color: white; padding: 0 15px; cursor: pointer; }
+
+.warning { background: #1a0a0a; border-left: 3px solid #821515; padding: 15px; font-size: 0.85rem; color: #aaa; }
