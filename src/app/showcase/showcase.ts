@@ -5,7 +5,7 @@ import { FeatureCardComponent } from '../feature-card/feature-card';
 @Component({
   selector: 'app-showcase',
   standalone: true,
-  imports: [CommonModule, FeatureCardComponent],
+  //imports: [CommonModule, FeatureCardComponent],
   templateUrl: './showcase.html',
   styleUrl: './showcase.css'
 })

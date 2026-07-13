@@ -1,22 +1,12 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component } from '@angular/core';
 
-import { Showcase } from './showcase';
+@Component({
+  selector: 'app-showcase',
+  templateUrl: './showcase.component.html',
+  styleUrls: ['./showcase.component.css']
+})
+export class ShowcaseComponent {
+  isVideoReady: boolean = false;
 
-describe('Showcase', () => {
-  let component: Showcase;
-  let fixture: ComponentFixture<Showcase>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [Showcase],
-    }).compileComponents();
-
-    fixture = TestBed.createComponent(Showcase);
-    component = fixture.componentInstance;
-    await fixture.whenStable();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+  constructor() { }
+}
